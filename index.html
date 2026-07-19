@@ -501,7 +501,7 @@ var STAGES=[{"k": "pripraveno", "l": "Připraveno", "c": "#8792a4"}, {"k": "odes
      radek('Stav',STAVY[dopis.stav]||dopis.stav);
      if(dopis.podaci_cislo)radek('Podací číslo',dopis.podaci_cislo);
      if(dopis.odeslano)radek('Odesláno',dopis.odeslano);
-     if(dopis.cena)radek('Cena',dopis.cena);
+     if(dopis.cena)radek('Poštovné',dopis.cena);
      if(katastr.parcely&&katastr.parcely.length)
        radek('Parcely',katastr.parcely.map(function(x){return x.ref;}).slice(0,4).join(', '));
      if(katastr.jistota==='adresa-neuplna'){
@@ -509,7 +509,7 @@ var STAGES=[{"k": "pripraveno", "l": "Připraveno", "c": "#8792a4"}, {"k": "odes
        w.textContent='⚠️ '+(katastr.poznamka||'Adresa není doručitelná — dohledej přesnou adresu.');ds.appendChild(w);}
      if(dopis.prijemce&&dopis.prijemce.indexOf('Vážený majiteli')===0){
        var n=document.createElement('div');n.className='dnote-k';
-       n.textContent='ℹ️ Jméno vlastníka nemáme — dopis půjde na adresu nemovitosti („Vážený majiteli nemovitosti"). Doručí se, jen není osobní.';
+       n.textContent='ℹ️ Dopis jde na adresu nemovitosti, oslovením „Vážený majiteli nemovitosti" — tak to máme nastavené. Pošta ho doručí do schránky majiteli, i když ho neznáme jménem.';
        ds.appendChild(n);}
      L.appendChild(ds);
    }
